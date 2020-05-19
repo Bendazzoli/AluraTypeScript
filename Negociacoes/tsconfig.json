@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "app/js",
+        
+        //Enquanto houver erro no arquivo TS, ele não gera o arquivo JS
+        "noEmitOnError": true
+    },
+    "include": [
+        "app/ts/**/*"
+    ]
+}
