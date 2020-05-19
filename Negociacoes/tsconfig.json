@@ -4,7 +4,8 @@
         "outDir": "app/js",
         
         //Enquanto houver erro no arquivo TS, ele não gera o arquivo JS
-        "noEmitOnError": true
+        "noEmitOnError": true,
+        "noImplicitAny": true
     },
     "include": [
         "app/ts/**/*"
