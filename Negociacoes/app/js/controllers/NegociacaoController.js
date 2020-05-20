@@ -15,8 +15,8 @@ System.register(["../views/index", "../models/index"], function (exports_1, cont
             NegociacaoController = class NegociacaoController {
                 constructor() {
                     this._negociacoes = new index_2.Negociacoes();
-                    this._negociacoesView = new index_1.NegociacoesView('#NegociacoesView', true);
-                    this._mensagemView = new index_1.MensagemView('#MensagemView', true);
+                    this._negociacoesView = new index_1.NegociacoesView('#NegociacoesView');
+                    this._mensagemView = new index_1.MensagemView('#MensagemView');
                     this._inputData = $('#data');
                     this._inputQuantidade = $('#quantidade');
                     this._inputValor = $('#valor');
