@@ -1,17 +1,19 @@
 export abstract class View<T>{
 
     protected _elemento: JQuery;
-    private _escapar: Boolean;
+    private _escapar: boolean;
 
-    constructor(selector: string, escapar = true){
-        this._elemento = $(selector);
+    constructor(seletor: string, escapar: boolean = true) {
+
+        this._elemento = $(seletor);
         this._escapar = escapar;
     }
 
-    update(model: T): void{
+    update(model: T) {
         let template = this.template(model);
+
         if(this._escapar)
-            template = template.replace(/<script>[\s\S]*?<\/script>/, '');
+            template = template.replace(/<script>[\s\S]*?<\/script>/g, '');
         this._elemento.html(template);
     }
 

@@ -15,8 +15,8 @@ System.register(["../views/index", "../models/index"], function (exports_1, cont
             NegociacaoController = class NegociacaoController {
                 constructor() {
                     this._negociacoes = new index_2.Negociacoes();
-                    this._negociacoesView = new index_1.NegociacoesView('#NegociacoesView');
-                    this._mensagemView = new index_1.MensagemView('#MensagemView');
+                    this._negociacoesView = new index_1.NegociacoesView('#negociacoesView');
+                    this._mensagemView = new index_1.MensagemView('#mensagemView');
                     this._inputData = $('#data');
                     this._inputQuantidade = $('#quantidade');
                     this._inputValor = $('#valor');
@@ -24,18 +24,18 @@ System.register(["../views/index", "../models/index"], function (exports_1, cont
                 }
                 adiciona(event) {
                     event.preventDefault();
-                    let dataNegociacao = new Date(this._inputData.val().replace(/-/g, ','));
-                    if (!this._ehDiaUtil(dataNegociacao)) {
-                        this._mensagemView.update("Informar somente um dia útil para data de negociação.");
+                    let data = new Date(this._inputData.val().replace(/-/g, ','));
+                    if (!this._ehDiaUtil(data)) {
+                        this._mensagemView.update('Somente negociações em dias úteis, por favor!');
+                        return;
                     }
-                    const negociacao = new index_2.Negociacao(dataNegociacao, parseInt(this._inputQuantidade.val()), parseFloat(this._inputValor.val()));
+                    const negociacao = new index_2.Negociacao(data, parseInt(this._inputQuantidade.val()), parseFloat(this._inputValor.val()));
                     this._negociacoes.adiciona(negociacao);
                     this._negociacoesView.update(this._negociacoes);
-                    this._mensagemView.update("Negociação adicionada com sucesso!");
+                    this._mensagemView.update('Negociação adicionada com sucesso!');
                 }
                 _ehDiaUtil(data) {
-                    return data.getDay() != DiaDaSemana.Sabado &&
-                        data.getDay() != DiaDaSemana.Domingo;
+                    return data.getDay() != DiaDaSemana.Sabado && data.getDay() != DiaDaSemana.Domingo;
                 }
             };
             exports_1("NegociacaoController", NegociacaoController);
