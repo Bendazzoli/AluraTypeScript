@@ -6,7 +6,8 @@
         //Enquanto houver erro no arquivo TS, ele não gera o arquivo JS
         "noEmitOnError": true,
         "noImplicitAny": true,
-        "removeComments": true
+        "removeComments": true,
+        "module": "system"
     },
     "include": [
         "app/ts/**/*"
