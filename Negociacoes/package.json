@@ -1,5 +1,5 @@
 {
-  "name": "Negociacoes",
+  "name": "alurabank",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +10,7 @@
     "server": "lite-server --baseDir=app",
     "start": "concurrently \"npm run watch\" \"npm run server\""
   },
-  "keywords": [],
-  "author": "", 
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/jquery": "^2.0.42",

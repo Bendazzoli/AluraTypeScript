@@ -16,7 +16,7 @@ System.register(["../helpers/decorators/index"], function (exports_1, context_1)
         ],
         execute: function () {
             View = class View {
-                constructor(seletor, escapar = true) {
+                constructor(seletor, escapar = false) {
                     this._elemento = $(seletor);
                     this._escapar = escapar;
                 }
@@ -28,7 +28,7 @@ System.register(["../helpers/decorators/index"], function (exports_1, context_1)
                 }
             };
             __decorate([
-                index_1.logarTempoExecucao()
+                index_1.logarTempoDeExecucao()
             ], View.prototype, "update", null);
             exports_1("View", View);
         }

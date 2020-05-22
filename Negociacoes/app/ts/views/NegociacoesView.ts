@@ -1,9 +1,10 @@
-import {View} from './View';
-import {Negociacoes} from '../models/Negociacoes';
+import { View } from './View';
+import { Negociacoes } from '../models/Negociacoes';
 
-export class NegociacoesView extends View<Negociacoes>{
+export class NegociacoesView extends View<Negociacoes> {
 
-    template(model: Negociacoes): string{
+    template(model: Negociacoes): string {
+
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -16,22 +17,21 @@ export class NegociacoesView extends View<Negociacoes>{
             </thead>
 
             <tbody>
-                ${model.paraArray().map(neg => {
-                    return `
-                        <tr>
-                            <td>${neg.data.getDate()}/${(neg.data.getMonth() + 1)}/${neg.data.getFullYear()}</td>
-                            <td>${neg.quantidade}</td>
-                            <td>${neg.valor}</td>
-                            <td>${neg.volume}</td>
-                        </tr>
+                ${model.paraArray().map(negociacao => 
                     `
-                }).join('')}
+                        <tr>
+                            <td>${negociacao.data.getDate()}/${negociacao.data.getMonth() +1}/${negociacao.data.getFullYear()}</td>
+                            <td>${negociacao.quantidade}</td>
+                            <td>${negociacao.valor}</td>
+                            <td>${negociacao.volume}</td>
+                        <tr>
+                    `   
+                ).join('')}            
             </tbody>
 
             <tfoot>
             </tfoot>
         </table>
-        <script>alert('Oi')</script> 
         `;
     }
 }
